@@ -28,7 +28,7 @@
 
             console.log('Datos del formulario:', data); // Verificar los datos antes de enviar
 
-            fetch('https://script.google.com/macros/s/AKfycbxtde_jTXieXM355ogVsfgO04Lh410RDr_3HUtNCrLtt0fL3ZG-b7u5aYkXu_R1ODLbYA/exec', {
+            fetch('https://script.google.com/macros/s/AKfycbye6gDRRY1l7mYv0SKVmhaNYpwdjE3t6r41jenMBWAXlkatI4DnaVUh6n5ybgBdzjl8iA/exec', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
