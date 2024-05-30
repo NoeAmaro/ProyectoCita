@@ -4,7 +4,7 @@ document.getElementById('appointment-form').addEventListener('submit', function(
     const formData = new FormData(event.target);
     const data = Object.fromEntries(formData.entries());
 
-    fetch('https://script.google.com/macros/s/AKfycbzihmkYe5Le5IJcSGARxL9FKAOavJ0kkACt4pxlwkXLD7jOefx5KAWkaPzK8ijo4g4s8Q/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbw3uAizGiNE_K8idJU1n2JdWX8ybMnoi8dLvSmsXziNfg7-bTEG07GnkClTmLxJ3IzWtw/exec', {  // Aquí va tu URL
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
