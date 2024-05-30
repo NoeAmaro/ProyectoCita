@@ -9,7 +9,7 @@ document.getElementById('appointment-form').addEventListener('submit', function(
   const data = Object.fromEntries(formData.entries());
 
   // Realiza una solicitud fetch al script de Google Apps
-  fetch('https://script.google.com/macros/s/AKfycbye6gDRRY1l7mYv0SKVmhaNYpwdjE3t6r41jenMBWAXlkatI4DnaVUh6n5ybgBdzjl8iA/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbzhJjpOtpRNfZokw0m4dm-tVwbLI5d7axLsreUPP89R3Rt2a5WCFwsCBWOP5emA3hPKtg/exec', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
