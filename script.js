@@ -6,7 +6,10 @@ document.getElementById('appointment-form').addEventListener('submit', function(
 
     console.log('Datos del formulario:', data); // Verificar los datos antes de enviar
 
-    fetch('https://script.google.com/macros/s/AKfycbw3uAizGiNE_K8idJU1n2JdWX8ybMnoi8dLvSmsXziNfg7-bTEG07GnkClTmLxJ3IzWtw/exec', {  // Aquí va tu URL
+    fetch('https://script.google.com/macros/s/AKfycbxH7zprruyLZYBKRJp2_2s7e85iqZPGSrd_c22FEh_xH2H2qcwFtjgHQDoJkWVQVTqc7g/exec', { 
+       
+        
+        // Aquí va tu URL
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
