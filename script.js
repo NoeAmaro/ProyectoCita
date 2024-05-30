@@ -6,10 +6,7 @@ document.getElementById('appointment-form').addEventListener('submit', function(
 
     console.log('Datos del formulario:', data); // Verificar los datos antes de enviar
 
-    fetch('https://script.google.com/macros/s/AKfycbxH7zprruyLZYBKRJp2_2s7e85iqZPGSrd_c22FEh_xH2H2qcwFtjgHQDoJkWVQVTqc7g/exec', { 
-       
-        
-        // Aquí va tu URL
+    fetch('https://cors-anywhere.herokuapp.com/https://script.google.com/macros/s/AKfycbxH7zprruyLZYBKRJp2_2s7e85iqZPGSrd_c22FEh_xH2H2qcwFtjgHQDoJkWVQVTqc7g/exec', {  // Aquí va tu URL con el proxy
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -36,3 +33,4 @@ document.getElementById('appointment-form').addEventListener('submit', function(
         alert('Hubo un error al agendar su cita. Inténtelo de nuevo.');
     });
 });
+
