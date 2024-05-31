@@ -1,71 +1,55 @@
-// Escucha el evento de envío del formulario
-document.getElementById('appointment-form').addEventListener('submit', function (event) {
-  event.preventDefault(); // Evita que la página se recargue al enviar el formulario
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agendar Cita</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Agendar una Cita</h2>
+    <form id="appointment-form" action="https://script.google.com/macros/s/AKfycbyYJz3HTE0TXCl6-0SXoVUatG72H0olB67D7adIBQUpRIJrk12BpXeFYjQxmbiIB9vDlw/exec" method="post">
+      <div class="form-group">
+        <label for="name">Nombre:</label>
+        <input type="text" id="name" name="Nombre" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="Correo_electronico" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Teléfono:</label>
+        <input type="tel" id="phone" name="Telefono" required>
+      </div>
+      <div class="form-group">
+        <label for="service">Tipo de Asesoría:</label>
+        <select id="service" name="Tipo_de_asesoria" required>
+          <option value="" disabled selected>Seleccione una opción</option>
+          <option value="penal">Asesoría Penal</option>
+          <option value="familiar">Asesoría Familiar</option>
+          <option value="civil">Asesoría Civil</option>
+          <option value="laboral">Asesoría Laboral</option>
+          <option value="fiscal">Asesoría Fiscal</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="date">Fecha:</label>
+        <input type="date" id="date" name="Fecha" required>
+      </div>
+      <div class="form-group">
+        <label for="time">Hora:</label>
+        <input type="time" id="time" name="Hora" required>
+      </div>
+      <div class="form-group">
+        <label for="message">Mensaje:</label>
+        <textarea id="message" name="Mensaje" rows="4" placeholder="Escriba su consulta aquí..." required></textarea>
+      </div>
+      <button type="submit">Agendar Cita</button>
+    </form>
+    <div id="confirmation" class="hidden">¡Su cita ha sido agendada!</div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
 
-  // Obtiene los datos del formulario
-  const formData = new FormData(event.target);
-  const data = Object.fromEntries(formData.entries());
-
-  // Realiza una solicitud fetch al script de Google Apps Script
-  fetch('https://script.google.com/macros/s/AKfycbwA0V8Q95KJg-0XH8auRZobNghtTS6s4H58IZpXt_cthMOJGbpKEZcOKVyG_ceS7o7Z2w/exec', {
-    redirect: 'follow',
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  })
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Error en la red');
-    }
-    return response.json();
-  })
-  .then(data => {
-    // Maneja la respuesta del servidor
-    if (data.status === 'success') {
-      document.getElementById('confirmation').classList.remove('hidden');
-      event.target.reset(); // Limpia el formulario
-    } else {
-      alert('Hubo un error al agendar su cita. Inténtelo de nuevo.');
-    }
-  })
-  .catch(error => {
-    console.error('Error:', error);
-    alert('Hubo un error al agendar su cita. Inténtelo de nuevo.');
-  });
-});
-
-// Función para guardar los datos en la hoja de cálculo (ejemplo)
-function onSubmit(e) {
-  // ... (código para obtener los datos del formulario)
-
-  // Configuración CORS
-  if (e.method === 'POST') {
-    var headers = e.response.getHeaders();
-    headers['Access-Control-Allow-Origin'] = '*';
-    headers['Access-Control-Allow-Methods'] = 'POST';
-    headers['Access-Control-Allow-Headers'] = 'Content-Type, Authorization';
-    headers['Access-Control-Expose-Headers'] = 'Authorization';
-    e.response.setHeaders(headers);
-  }
-
-  // Crea un objeto con los datos de la cita
-  var datosCita = {
-    nombre: nombre,
-    correoElectronico: correoElectronico,
-    telefono: telefono,
-    tipoAsesoria: tipoAsesoria,
-    fecha: fecha,
-    hora: hora,
-    mensaje: mensaje
-  };
-
-  // Envía una respuesta de confirmación en formato JSON
-  var respuesta = {
-    mensaje: "Su cita ha sido agendada correctamente.",
-    datos: datosCita
-  };
-  e.response.setContentType('application/json');
-  e.response.setContent(JSON.stringify(respuesta));
-}
