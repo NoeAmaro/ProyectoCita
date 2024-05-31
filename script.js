@@ -6,7 +6,7 @@ document.getElementById('appointment-form').addEventListener('submit', function(
   var formData = new FormData(event.target);
 
   // Realiza una solicitud fetch al script de Google Apps Script
-  fetch('https://script.google.com/macros/s/AKfycbwme0K15yxs5PKoFhuvxp4aSiBfe8_SoBffZ3gDCtGNh5uKkO7iN1mjucGDGkrTkWDu7g/exec', {
+  fetch('https://script.google.com/macros/s/AKfycbyNZW7YL7_YR6xFlpNIyA0ke7OemnKChR1kvV_7qW9LBvKeJfaF8Ml3graEPb_i4MYONw/exec', {
     method: 'POST',
     body: formData // Enviar como FormData
   })
