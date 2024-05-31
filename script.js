@@ -31,4 +31,3 @@ document.getElementById('appointment-form').addEventListener('submit', function(
     alert('Hubo un error al agendar su cita. Inténtelo de nuevo.');
   });
 });
-
