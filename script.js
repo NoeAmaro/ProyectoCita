@@ -19,8 +19,6 @@ document.getElementById('appointment-form').addEventListener('submit', function(
       // Muestra el mensaje de confirmación y limpia el formulario
       document.getElementById('confirmation').classList.remove('hidden');
       event.target.reset();
-      // Opcionalmente, puedes agregar una lógica aquí para ocultar el formulario
-      // y mostrar solo el mensaje de confirmación, o redirigir a otra página
     } else {
       // Maneja los errores, por ejemplo, mostrando un mensaje al usuario
       alert('Hubo un error al agendar su cita. Inténtelo de nuevo.');
@@ -31,3 +29,4 @@ document.getElementById('appointment-form').addEventListener('submit', function(
     alert('Hubo un error al agendar su cita. Inténtelo de nuevo.');
   });
 });
+
